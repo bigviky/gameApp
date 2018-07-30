@@ -1,0 +1,66 @@
+<div class="container-fluid">
+    <div class="row srch-box">
+        <div class="col-xs-6 col-sm-3 p-b-20">
+            <input type="text" class="srch-txt" placeholder="Search By Name" ng-model="searchTxt"  uib-typeahead="game.title for game in games | filter: {title:$viewValue} | limitTo:8"/>
+        </div>
+        <div class="col-xs-6 col-sm-3">
+            <button type="submit" class="btn btn-info btn-sm" ng-click="searchGameByName(searchTxt)">Search</button>
+            <button type="submit" class="btn btn-info btn-sm" ng-click="clearSearch()">Clear Search</button>
+        </div>
+        <div class="col-xs-12 col-sm-6">
+        <label>Sort Based on Platform</label>
+        	<strong>
+                  <button type="submit" class="btn btn-sm" ng-class="{'btn-active':platformSelectedOrder==='ASC', 'btn-inactive':platformSelectedOrder!=='ASC'}" ng-click="platformSelectedOrder = 'ASC'; updatePlatformSorting(1,1)">Ascending</button>
+                  <button type="submit" class="btn btn-sm" ng-class="{'btn-active':platformSelectedOrder==='DESC', 'btn-inactive':platformSelectedOrder!=='DESC'}" ng-click="platformSelectedOrder = 'DESC'; updatePlatformSorting(1,0)">Descending</button>
+              </strong>
+         </div>
+    </div>
+    <div class="row">
+        <div class="col-xs-12 pagination">
+            <a href="" ng-click="nextLeft()">&laquo;</a>
+            <a href="" ng-repeat="page in pages" ng-class="{'current-page': currentPage===page}" ng-click="updatePage(page)">{{page}}</a>
+            <a> . . . </a>
+            <a href="" ng-click="nextRight()">&raquo;</a>
+            <a>Total Pages: {{totalPages}}</a>
+        </div>
+        <div class="col-xs-12" ng-if="sortMsg">
+        	<p> {{sortMsg}}</p>
+        </div>
+    </div>
+    <div class="row row-header mob-hide">
+        <div class="col-xs-12 col-sm-4">
+            Name
+        </div>
+        <div class="col-xs-12 col-sm-2">
+            Platform
+        </div>
+        <div class="col-xs-12 col-sm-2">
+            <a href="" ng-click="sortByScore(asce); asce = !asce">Score
+                <i ng-class="{'fa fa-chevron-down': asce, 'fa fa-chevron-up': !asce}"></i>
+            </a>
+        </div>
+        <div class="col-xs-12 col-sm-2">
+            Genre
+        </div>
+        <div class="col-xs-12 col-sm-2">
+            Editor's Choice
+        </div>
+    </div>
+    <div class="ng-class-even: 'even-row'; ng-class-odd: 'odd-row'; row" ng-repeat="game in games | orderBy: scoreOrder">
+        <div class="col-xs-12 col-sm-4">
+            {{game.title}}
+        </div>
+        <div class="col-xs-12 col-sm-2">
+            {{game.platform}}
+        </div>
+        <div class="col-xs-12 col-sm-2">
+            {{game.score | score : 1}}
+        </div>
+        <div class="col-xs-12 col-sm-2">
+            {{game.genre}}
+        </div>
+        <div class="col-xs-12 col-sm-2">
+            {{game.editors_choice}}
+        </div>
+    </div>
+</div>

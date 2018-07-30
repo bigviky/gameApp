@@ -1,0 +1,77 @@
+/* app css stylesheet */
+
+.p-b-20 {
+	padding-bottom: 20px;
+}
+
+.srch-txt {
+    float: left;
+    width: 100%;
+    min-height: auto;
+    padding: 3px;
+    color: #ccc;
+    font-style: italic;
+    border: 1px solid #999;
+}
+.srch-box {
+  padding: 12px 0 12px 0;
+}
+.row-header {
+  border-bottom: 1px solid #e5e5e5;
+  margin-bottom: 10px;
+  font-size: 16px;
+  font-family: 'ProximaNova', sans-serif;
+  background-color: rgb(175, 202, 153);
+}
+.odd-row {
+  background-color: wheat;
+  
+}
+.even-row {
+  background-color: white;
+}
+
+.pagination {
+  display: inline-block;
+}
+
+.pagination a {
+  color: black;
+  float: left;
+  padding: 8px 16px;
+  text-decoration: none;
+}
+.current-page {
+  background-color: #fbd58e;
+}
+
+.btn-active {
+  color: #fff;
+  padding: 5px 10px;
+  font-size: 12px;
+  line-height: 1.5;
+  border-radius: 3px;
+  background-color: #005cb9;
+  border-color: #005cb9;
+  cursor: pointer;
+}
+.btn-active:hover {
+  color: #fff;
+  background-color: #13294b;
+  border-color: #13294b;
+}
+.btn-inactive {
+  color: rgb(0, 0, 0);
+  background-color: buttonface;
+  border-color: buttonface;
+  padding: 5px 10px;
+  font-size: 12px;
+  line-height: 1.5;
+  border-radius: 3px;
+  cursor: pointer;
+}
+.btn-inactive:hover {
+  color: rgb(0, 0, 0);
+  background-color: buttonface;
+  border-color: buttonface;
+}
